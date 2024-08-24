@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "firstName": "Mohamed",
+    "lastName": "Adel",
+    "email": "aya@gmail.com",
+    "phoneNumber": "01065016617",
+    "password": "$2b$10$pfCL.au.kpKgndk5TYFeBuOMaEujBFAYaXiMVelS/FfTD07eQtlDO",
+    "role": "admin"
+  },
+  {
+    "id": 2,
+    "firstName": "Mohameddd",
+    "lastName": "Adel",
+    "email": "ay@gmail.com",
+    "phoneNumber": "01065016617",
+    "password": "$2b$10$n/ZceaQOHzKlRkPWDNeLyOfrf6V.Ty8OxfGXyiiB1L1qg93.OtyZe",
+    "role": "user"
+  }
+]

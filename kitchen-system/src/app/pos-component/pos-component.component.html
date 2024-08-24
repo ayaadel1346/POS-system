@@ -1,0 +1,168 @@
+@if(isLoading){
+  <app-loader></app-loader>
+}
+
+
+@if(!isLoading){
+
+  <app-top-nav></app-top-nav>
+
+  <main class="container-fluid my-3">
+
+    <section class="row ps-4 pe-4 justify-content-center">
+
+      <header class="img-header-container">
+
+          <img 
+          src="https://media.istockphoto.com/id/1148809207/photo/peoples-hands-with-various-snacks-and-blooming-mimosa-top-view.jpg?s=612x612&w=0&k=20&c=o56IF67G2ZiAWbJ_tpkgtIr3wURQULZf5lbejm_2d9g="
+          alt="image"
+          />
+  
+      </header>
+    
+   
+
+        <!-- Product Cards Container -->
+
+        <section class=" my-5  product-cards col-lg-9 col-md-8 col-12 d-flex flex-wrap">
+  
+             <!-- Product Card -->
+
+          <div 
+           *ngFor="let product of filteredProducts"  
+           class="col-lg-3 ms-2 col-md-5 col-12 card my-5"
+          >
+
+            <div class="img-container">
+              <img [src]="product.img" alt="img"/>
+            </div>
+
+  
+            <div class="card-body">
+
+              <h5 class="card-title">{{ product.name }}</h5>
+              <p class="card-text">{{ product.description }}</p>
+              <p class="card-text h6">{{ product.price | currency }}</p>
+  
+              <section 
+               *ngIf="product.id" 
+               class="quantity-control d-flex justify-content-between align-items-center mt-3"
+              >
+                <button 
+                 (click)="decreaseQuantity(product.id)" 
+                 class="btn btn-outline-secondary"
+                >
+                 -
+                </button>
+
+                <span>{{ quantities[product.id] }}</span>
+
+                <button 
+                 (click)="increaseQuantity(product.id)" 
+                 class="btn btn-outline-secondary"
+                >
+                 +
+                </button>
+
+              </section>
+
+            </div>
+  
+
+            <div class="card-footer">
+
+              <button  
+               (click)="orderNow(product.id)" 
+               class="custom-btn col-12"
+              >
+               Order Now
+              </button>
+
+            </div>
+
+          </div>
+  
+
+  
+            <!-- Pagination -->
+           
+            <div 
+             class="pagination-controls my-5 col-12 d-flex justify-content-center mt-4"
+            >
+              <button 
+               class="btn btn-secondary me-2" 
+               (click)="previousPage()" 
+               [disabled]="currentPage === 1"
+              >
+               Previous
+              </button>
+
+              <span>Page {{ currentPage }} of {{ totalPages }}</span>
+
+              <button 
+               class="btn btn-secondary ms-2 ps-4 pe-4" 
+               (click)="nextPage()" 
+               [disabled]="currentPage === totalPages"
+              >
+               Next
+              </button>
+
+          </div>
+
+      </section>
+        
+  
+
+
+
+        <!-- Order Form -->
+
+        <section class="col-lg-3 col-md-4 col-12 shadow order-summary mt-5">
+
+          <h2 class="text-center my-4">Order Summary</h2>
+
+          <form 
+           (ngSubmit)="confirmOrder()" 
+           class="order-form"
+          >
+
+            <div 
+             *ngFor="let order of orders" 
+              class="mb-3"
+            >
+              <h5>{{ order.product.name }}</h5>
+              <p>Quantity: {{ order.quantity }}</p>
+              <p>Total Price: {{ (order.product.price * order.quantity) | currency }}</p>
+
+              <textarea 
+               [(ngModel)]="order.note" 
+               name="note-{{order.product.id}}" 
+               class="form-control" 
+               placeholder="Add a note" 
+               rows="2">
+              </textarea>
+
+              <button (click)="removeOrder(order.product.id)" class="btn my-3 btn-danger">Remove</button>
+
+            </div>
+
+            <hr>
+
+            <h4>Total Amount: {{ calculateTotalPrice() | currency }}</h4>
+
+            <button type="submit" class="custom-btn my-2 p-2 w-100">Confirm Order</button>
+
+          </form>
+
+        </section>
+        
+      </section>
+  
+  
+  </main>
+  
+
+   <app-footer></app-footer>
+  
+
+}

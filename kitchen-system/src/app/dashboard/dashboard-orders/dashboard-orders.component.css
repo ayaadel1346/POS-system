@@ -1,0 +1,10 @@
+.order-container >section>div{
+    box-shadow: 0 0 10px orangered;
+}
+
+
+.confirmation-badge {
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+}

@@ -1,0 +1,43 @@
+.register {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('https://media.istockphoto.com/id/1596147786/photo/restaurant-cafe-outdoor-patio-cover-with-pergola.jpg?s=2048x2048&w=is&k=20&c=Dt9WiyPNb_GQEl95Pzpl96WgdQ6ERI8bdnThufFmId0=');
+    background-size: cover;
+    overflow-x: hidden;
+
+}
+
+.register form {
+    background-color: rgba(183, 176, 176, 0.595);
+    border-radius: 8px;
+    padding: 20px;
+    width: 50vw;
+    box-shadow: 0 0 10px orangered;
+}
+
+.register a{
+ font-size: larger;
+ background-color: rgba(189, 191, 194, 0.997);
+ border-radius: 5px;
+ padding: 1%;
+}
+
+.register div,
+.register button {
+    padding: 1% 2%;
+}
+
+.register input {
+    box-shadow: 0 0 10px rgb(109, 105, 105);
+}
+
+@media(max-width:768px){
+    .register form{
+        width:80vw;
+    }
+}

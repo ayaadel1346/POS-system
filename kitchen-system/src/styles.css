@@ -1,0 +1,37 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+html, body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+
+.custom-cursor{
+    cursor: pointer;
+}
+
+
+.custom-btn{
+ padding: 1%;
+ border-radius: 7px;
+ border: none;
+ background: #fe8c00; 
+ background: -webkit-linear-gradient(to right, #e43403, #de7b02); 
+ background: linear-gradient(to right, #eb3503, #fe8c00); 
+ color: white;
+}
+
+
+.custom-btn:hover{
+  
+background: #d47604;  
+background: -webkit-linear-gradient(to right, #d63002, #dc7a02); 
+background: linear-gradient(to right, #b82800, #d87700);
+
+}
