@@ -41,6 +41,17 @@
       </ul>
 
     </div>
-    
+
+
+    <div class="justify-content-end">
+      <a class="nav-link mx-3" (click)="toggleSidebar()">
+        <fa-icon [icon]="faCartShopping"></fa-icon>
+      </a>
+    </div>
+  
   </nav>
   
+
+  <app-show-order *ngIf="isSidebarVisible"></app-show-order>
+
+ 

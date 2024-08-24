@@ -4,11 +4,15 @@ import { SentDataService } from '../../services/sent-data.service';
 import { RouterLink } from '@angular/router';
 import { environment } from '../../../environment';
 import * as CryptoJS from 'crypto-js';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ShowOrderComponent } from "../../show-order/show-order.component";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-top-nav',
   standalone: true,
-  imports: [NgbModule,RouterLink],
+  imports: [NgbModule, RouterLink, FontAwesomeModule, ShowOrderComponent,CommonModule],
   templateUrl: './top-nav.component.html',
   styleUrl: './top-nav.component.css'
 })
@@ -20,7 +24,9 @@ export class TopNavComponent {
 
   isCollapsed = true;
   data:string='';
-  
+  faCartShopping = faCartShopping;
+  isSidebarVisible = false;
+
 
   constructor(private emitterService:SentDataService){
     if (this.encryptedRole) {
@@ -38,5 +44,8 @@ export class TopNavComponent {
   }
 
   
+  toggleSidebar() {
+    this.isSidebarVisible = !this.isSidebarVisible; 
+  }
 
 }

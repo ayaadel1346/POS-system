@@ -1,0 +1,40 @@
+<main class="sidebar">
+
+    <h3 class=" my-3">Your Orders</h3>
+
+        <section class="row justify-content-center">
+
+          
+           @for(order of orders; track order.id){
+       
+            <div class=" mx-2  col-11 pb-4 pt-4 card my-3">
+    
+             @for(item of order.orderItems; track item ){
+
+    
+                <div>
+    
+                  <h4 class="card-title my-2">{{item.productName}}</h4>
+    
+                  <p class="my-4">
+                        <strong>Status:</strong>
+                        {{item.status}}
+                  </p>
+    
+                </div>
+            }
+    
+            <h5 class="my-2">
+             Total Price:{{order.totalPrice | currency}}
+            </h5>
+            
+        </div>
+      }
+    
+        </section>
+    
+   
+
+
+  </main>
+  

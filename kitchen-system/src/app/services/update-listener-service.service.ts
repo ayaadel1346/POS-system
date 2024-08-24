@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { OrderService } from './order.service';
-import { getDatabase, ref, onChildAdded } from 'firebase/database';
+import { getDatabase, ref, onChildAdded ,onChildChanged} from 'firebase/database';
 import { initializeApp } from 'firebase/app';
 import { Order } from '../model/order.model';
 
@@ -29,6 +29,12 @@ export class UpdateListenerService {
       const newOrder: Order = { id: snapshot.key!, ...snapshot.val() };
       this.orderService.addNewOrder(newOrder);
       console.log('New order added:', newOrder);
+    });
+
+    onChildChanged(ordersRef, (snapshot) => {
+      const updatedOrder: Order = { id: snapshot.key!, ...snapshot.val() };
+      this.orderService.updateExistingOrder(updatedOrder);
+      console.log('Order updated:', updatedOrder);
     });
     
   }

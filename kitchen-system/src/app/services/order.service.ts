@@ -45,4 +45,13 @@ export class OrderService {
       this.ordersSubject.next([...currentOrders, order]);
     }
   }
+
+  updateExistingOrder(updatedOrder: Order): void {
+    const currentOrders = this.ordersSubject.value;
+    const updatedOrders = currentOrders.map(order =>
+      order.id === updatedOrder.id ? updatedOrder : order
+    );
+    this.ordersSubject.next(updatedOrders);
+  }
+  
 }
