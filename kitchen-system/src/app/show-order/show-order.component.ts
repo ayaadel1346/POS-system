@@ -7,11 +7,13 @@ import { CommonModule } from '@angular/common';
 import * as CryptoJS from 'crypto-js';
 import { Router } from '@angular/router';
 import { environment } from '../../environment';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faClose } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-show-order',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,FontAwesomeModule],
   templateUrl: './show-order.component.html',
   styleUrls: ['./show-order.component.css']
 })
@@ -20,6 +22,9 @@ export class ShowOrderComponent implements OnInit, OnDestroy {
 
   orders: Order[] = [];
   userId: string | null = null;
+  isSidebarVisible = true;
+  faClose = faClose;
+
   private subscriptions: Subscription = new Subscription();
 
   constructor(
@@ -79,9 +84,8 @@ export class ShowOrderComponent implements OnInit, OnDestroy {
 
 
 
-  formatConfirmationTime(confirmationTime: string): string {
-    const date = new Date(confirmationTime);
-    return date.toLocaleString();
+  toggleSidebar() {
+    this.isSidebarVisible = !this.isSidebarVisible; 
   }
 
 

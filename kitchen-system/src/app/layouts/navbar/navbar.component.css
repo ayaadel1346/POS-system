@@ -1,12 +1,14 @@
 nav {
-    width: 100%;
-    background-color:orangered;
-    color: white;
-    padding: 10px;
-    position: relative;
-    top: 0;
-    z-index: 1000;
-  }
+  z-index: 10000;
+  position: fixed;
+  background-color:orangered;
+  top: 0; 
+  min-height:90px;
+  width: 100%;
+  box-shadow: 0 0 14px rgba(210, 207, 207, 0.5);
+}
+
+
   
 
 li , a {

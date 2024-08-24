@@ -1,7 +1,13 @@
-nav{
+nav {
     z-index: 10000;
-    box-shadow: 0 0 14px rgba(210, 207, 207, 0.5);   
+    position: fixed; 
+    background-color: white;
+    top: 0; 
+    min-height:90px;
+    width: 100%;
+    box-shadow: 0 0 14px rgba(210, 207, 207, 0.5);
 }
+
 
 
 li , a {

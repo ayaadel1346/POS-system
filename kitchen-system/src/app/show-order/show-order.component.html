@@ -1,4 +1,9 @@
-<main class="sidebar">
+<main *ngIf="isSidebarVisible" class="sidebar">
+
+    <div class=" d-flex justify-content-end">
+        <fa-icon (click)="toggleSidebar()" [icon]="faClose"></fa-icon>
+    </div>
+
 
     <h3 class=" my-3">Your Orders</h3>
 
