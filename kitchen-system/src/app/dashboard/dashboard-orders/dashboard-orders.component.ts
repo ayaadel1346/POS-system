@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { UpdateListenerService } from '../../services/update-listener-service.service';
 import { Order } from '../../model/order.model';
@@ -25,8 +25,7 @@ export class DashboardOrdersComponent implements OnInit, OnDestroy {
 
   constructor(
     private orderService: OrderService,
-    private updateListenerService: UpdateListenerService,
-    private cdr: ChangeDetectorRef
+    private updateListenerService: UpdateListenerService
   ) {}
 
 
@@ -38,7 +37,6 @@ export class DashboardOrdersComponent implements OnInit, OnDestroy {
       this.orderService.orders$.subscribe((orders) => {
         this.orders = orders;
         console.log('Orders updated:', this.orders);
-        this.cdr.detectChanges(); 
       })
     );
 
